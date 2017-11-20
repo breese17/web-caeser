@@ -1,5 +1,6 @@
-from flask import Flask
-from caeser import rotate_character
+
+from flask import Flask, request
+from caeser import rotate_character, alphabet_position, encrypt
 
 app = Flask(__name__)
 app.config['DEBUG']=True
@@ -26,31 +27,45 @@ form="""
             }
         </style>
     </head> 
-
+        
     <body> 
-        <form action="/hello" method="post">
+        <form method="post">
             Rotate by:
-            <input type="text" name="rot"
+            <input type="text" name="rot">
             <br>
             <br>
             <br> 
-            <textarea rows="4" cols="50" name="text" form="usrform">
-                </textarea><br> 
+            <textarea name="text" ></textarea> <br> 
                   
             <input type="submit" value="Submit Query">
+           
         </form>
+        
+        
+
         
     </body>
 
 </html> 
 """   
-   
 
-
-@app.route("/test")
+@app.route("/")
 
 def index():
     return form
 
+@app.route("/", methods=['POST'])
+def encryption():
+    rot = request.form ['rot']
+    text= request.form ['text']
+    rot= int(rot)
+   
+
+    result = encrypt(text,rot)
+            
+    return result
+
 app.run()
 
+
+    
