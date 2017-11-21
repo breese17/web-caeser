@@ -35,7 +35,7 @@ form="""
             <br>
             <br>
             <br> 
-            <textarea name="text" ></textarea> <br> 
+            <textarea name="text" ></textarea><br> 
                   
             <input type="submit" value="Submit Query">
            
@@ -62,8 +62,31 @@ def encryption():
    
 
     result = encrypt(text,rot)
+    result_form="""
+
+    <head>
+       <h1>Your encrypted message</h1> 
+        
+      </head>
+
+    <body> 
+       <form method="post">
             
-    return result
+            <textarea name="text" >{0}</textarea> <br> 
+                  
+            
+           
+        </form>
+        
+        
+
+        
+    </body>
+
+ 
+"""   
+            
+    return result_form.format(result)
 
 app.run()
 
