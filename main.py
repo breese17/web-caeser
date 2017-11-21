@@ -31,7 +31,7 @@ form="""
     <body> 
         <form method="post">
             Rotate by:
-            <input type="text" name="rot">
+            <input type="text" name="rot" value="0">
             <br>
             <br>
             <br> 
@@ -66,15 +66,35 @@ def encryption():
 
     <head>
        <h1>Your encrypted message</h1> 
-        
-      </head>
+        <style>
+         form{{
+                background-color: #eee;
+                padding: 20px;
+                margin: 0 auto;
+                width: 540px;
+                font: 16px sans-serif;
+                border-radius: 10px; 
 
-    <body> 
-       <form method="post">
-            
-            <textarea name="text" >{0}</textarea> <br> 
+            }}
+            textarea{{
+                margin; 10px 0;
+                width: 540px;
+                height: 120px;
+
+            }}
+        </style>
+      </head>
+    <body>
+
+        <form method="post">
+            Rotate by:
+            <input type="text" name="rot" value="0">
+            <br>
+            <br>
+            <br> 
+            <textarea name="text" >{0}</textarea><br> 
                   
-            
+            <input type="submit" value="Submit Query">
            
         </form>
         
